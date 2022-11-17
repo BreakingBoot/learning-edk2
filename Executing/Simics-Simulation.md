@@ -1,5 +1,6 @@
 # To Run Simics
 
+## Setting up Simics
 Download the Simics Package Manager and the Packages from Intels website:
 ```
 https://lemcenter.intel.com/productDownload/productDownload
@@ -12,6 +13,8 @@ c. Select Browse for Bundle, and locate the "simics-6-packages-" file that ends 
 d. Finish the install.
 
 You can now launch the demo for getting familiar with the software and testing various components by enable and disabling them. The easiest way to launch the demo is to select Launch Demo that is on the screen under Scripts if you are currently on the Demo Project 1.
+
+## Running Simics with Custom UEFI Firmware
 
 Now to Run you own custom UEFI Firmware with it:
 
@@ -48,4 +51,15 @@ cp ~/src/Build/SimicsOpenBoardPkg/BoardX58Ich10/DEBUG_GCC5/FV/BOARDX58ICH10.fd ~
 ```
 The numbers may be slightly different for the `simics-qsp-x86-#####` due to the version you are using.
 
-Now modify the Simics include file to use your modified image rather than the default one
+Now modify the Simics include file to use your modified image rather than the default one, using the directory information I've been using:
+
+```
+~/Simics/simics-qsp-x86-6.0.57/targets/qsp-x86/qsp-uefi.include
+Modify:
+SIMICSX58IA32X64_1_0_0_bp_r.fd ---> BOARDX58ICH10.fd
+```
+Now in Simics Package Manager, click on the `>_` icon on the side and execute:
+```
+./simics targets/qsp-x86-qsp-modern-core.simics
+```
+A couple of popup windows will now appear, which will allow you to "start" the simulation.
