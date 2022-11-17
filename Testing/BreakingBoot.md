@@ -1,5 +1,5 @@
 # BreakingBoot Fuzzing Application
-This document will layout how to compile, execute, and limitations of the current application. The code was added ontop of the current `edk2` code in our own repo. The current code under development can be found (here)[https://github.com/BreakingBoot/edk2/tree/breakingboot].
+This document will layout how to compile, execute, and limitations of the current application. The code was added ontop of the current `edk2` code in our own repo. The current code under development can be found [here](https://github.com/BreakingBoot/edk2/tree/breakingboot).
 
 ## About the Application
 The application currently has 3 functions:
@@ -8,10 +8,10 @@ The application currently has 3 functions:
 3. It can print the supported drivers.
 
 ## Compiling
-This application was compiled following the instructions in the (Linux-Compilation)[https://github.com/BreakingBoot/learning-edk2/blob/main/Compiling/Linux-Compiling.md] document.
+This application was compiled following the instructions in the [Linux-Compilation](https://github.com/BreakingBoot/learning-edk2/blob/main/Compiling/Linux-Compiling.md) document.
 
 ## Executing 
-Once the code is compiled, follow the (execution guide)[https://github.com/BreakingBoot/learning-edk2/blob/main/Executing/QEMU-Emulation.md] to test the code, it can be tested using Simics as well. After you execute the emulator, use the following commands to execute it:
+Once the code is compiled, follow the [execution guide](https://github.com/BreakingBoot/learning-edk2/blob/main/Executing/QEMU-Emulation.md) to test the code, it can be tested using Simics as well. After you execute the emulator, use the following commands to execute it:
 ```
 // This command is to enter filesystem 0
 Shell> fs0:
