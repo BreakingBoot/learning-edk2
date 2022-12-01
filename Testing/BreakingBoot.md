@@ -3,9 +3,10 @@ This document will layout how to compile, execute, and limitations of the curren
 
 ## About the Application
 The application currently has 3 functions:
-1. It can "fuzz" and driver on the system.
-2. It can perform a normal operation on the system.
+1. It can "fuzz" the `ProcessFirmwareVolume` DXE Service with a hardcoded value.
+2. It can perform a normal operation on the `ProcessFirmwareVolume` DXE Service.
 3. It can print the supported drivers.
+The exact code that was added can be found the (`MdeModulePkg/Application/BreakingBoot`)[https://github.com/BreakingBoot/edk2/tree/breakingboot/MdeModulePkg/Application/BreakingBoot] folder.
 
 ## Compiling
 This application was compiled following the instructions in the (Linux-Compilation)[https://github.com/BreakingBoot/learning-edk2/blob/main/Compiling/Linux-Compiling.md] document.

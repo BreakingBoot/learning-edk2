@@ -47,6 +47,10 @@ Now all you have to do is build:
 build
 ```
 
+If you want to test with SMM you need to add a special compiling flag, `-D SMM_REQUIRE`, for example:
+```
+build -a X64 -t GCC5 -D SMM_REQUIRE
+```
 
 If you get the error:
 ```
@@ -58,3 +62,4 @@ Run:
 sudo apt-get install gcc-multilib
 sudo apt-get install libx11-dev:i386 libx11-dev libxext-dev libxxf86vm-dev
 ```
+
