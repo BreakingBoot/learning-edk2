@@ -60,7 +60,7 @@ No such file or directory
 Run:
 ```
 sudo apt-get install gcc-multilib
-sudo apt-get install libx11-dev:i386 libx11-dev libxext-dev libxxf86vm-dev
+sudo apt-get install libx11-dev:i386 libx11-dev libxext-dev libxext-dev:i386 libxxf86vm-dev
 ```
 
 Another common problem is if python3 doesn't have the correct alias, which can be fixed by running:
