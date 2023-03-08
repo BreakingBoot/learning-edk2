@@ -26,16 +26,18 @@ cd ~/src
 Now pull the necessary code to use it:
 ```
 git clone https://github.com/BreakingBoot/edk2.git
-git clone https://github.com/tianocore/edk2-platform.git
+git clone https://github.com/tianocore/edk2-platforms.git
 git clone https://github.com/tianocore/edk2-non-osi.git
+git clone https://github.com/Intel/FSP.git
 ```
-Note: The `edk2` repo has all of the main code that that is "mostly" platform independent, while `edk2-platform` holds platform specific code (e.g. specific logos for the different professors or assembly code) and `edk2-non-osi` holds additional features that you have created and want to include (also platform specific).
+Note: The `edk2` repo has all of the main code that that is "mostly" platform independent, while `edk2-platforms` holds platform specific code (e.g. specific logos for the different professors or assembly code) and `edk2-non-osi` holds additional features that you have created and want to include (also platform specific).
 
 Make sure you go into each repo and run:
 ```
 cd ~/src/edk2 && git submodule update --init --recursive
-cd ~/src/edk2-platform && git submodule update --init --recursive
+cd ~/src/edk2-platforms && git submodule update --init --recursive
 cd ~/src/edk2-non-osi && git submodule update --init --recursive
+cd ~/src/FSP && git submodule update --init --recursive
 ```
 Now that you have all of the necessary code, check for the the boards that are supported in the `edk2-platforms` repo, we are specifically looking for `BoardX58Ich10`:
 ```
@@ -63,3 +65,13 @@ Now in Simics Package Manager, click on the `>_` icon on the side and execute:
 ./simics targets/qsp-x86-qsp-modern-core.simics
 ```
 A couple of popup windows will now appear, which will allow you to "start" the simulation.
+
+To mount an external file system you need to do a couple of things, first is create the virtual file system:
+```
+sudo dd = if=/dev/zero of=VHD.vhd bs=1M count=1200
+sudo mkfs -t fat VHD.vhd
+```
+Next is modify Simics to use the file system. To do so, copy `VHD.vhd` to the `targets/qsp-x86/images` directory in your project and then add the following code to `qsp-modern-core.simics` in the `simics-qsp-cpu-6.0.12/targets/qsp-x86` directory:
+```
+$disk1_image="%simics%/targets/qsp-x86/images/VHD.vhd"
+```
